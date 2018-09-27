@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 
 const Selector = ({ items, onChange }) => {
   const _generateListItems = items =>
-    items.map(item => <option key={item.type} value={item.type}>{item.type}</option>)
-
-  const _handleChange = item => {
-    onChange ? onChange(item) : console.log('item')
-  }
+    items.map(item => (
+      <option key={item.type} value={item.type}>
+        {item.type}
+      </option>
+    ))
 
   return (
-    <select onChange={e => _handleChange(e)}>
+    <select onChange={e => onChange(e)}>
       {_generateListItems(items)}
     </select>
   )

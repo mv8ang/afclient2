@@ -16,12 +16,14 @@ class App extends Component {
     const selectedItem = items.filter(item => item.type === itemType)[0]
 
     this.setState({
-      selectedItemType: itemType,
       selectedItem: selectedItem,
     })
   }
 
   _handleStageItem = item => {
+    // TODO: decide how to pass item
+    console.log('stage item')
+
     this.setState(prevState => ({
       stagedItems: Object.assign(prevState.stagedItems, item),
     }))
@@ -30,9 +32,10 @@ class App extends Component {
   render() {
     return (
       <Fragment>
+        {/* TODO: make look more like */}
         <Selector items={items} onChange={e => this._handleSelectItem(e)} />
         {this.state.selectedItem
-          ?  <Model model={this.state.selectedItem} onChange={item => this._handleStageItem(item)} />
+          ?  <Model model={this.state.selectedItem} onSubmit={item => this._handleStageItem(item)} />
           : <p>Select an item from the list</p>
         }
       </Fragment>
