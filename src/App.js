@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import './App.css'
 
 import Selector from './components/Selector'
@@ -6,7 +6,7 @@ import Model from './components/Model'
 
 import { models as items } from './models'
 
-class App extends Component {
+class App extends PureComponent {
   state = {
     stagedItems: {},
   }

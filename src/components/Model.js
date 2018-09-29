@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Var from './Var'
 
 const Model = ({ model, onSubmit }) => {
@@ -16,6 +17,11 @@ const Model = ({ model, onSubmit }) => {
       <button onClick={() => onSubmit()}> Stage </button>
     </div>
   )
+}
+
+Model.propTypes = {
+  model: PropTypes.object,
+  onSubmit: PropTypes.func,
 }
 
 export default Model

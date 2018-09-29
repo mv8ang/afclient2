@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
-class Var extends Component {
+class Var extends PureComponent {
   state = {
     currentValue: this.props.item.val,
   }
@@ -23,6 +24,10 @@ class Var extends Component {
     )
 
   }
+}
+
+Var.propTypes = {
+  item: PropTypes.object,
 }
 
 export default Var
