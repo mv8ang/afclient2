@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react'
 import './App.css'
 
+// Material-UI
 import Selector from './components/Selector'
 import Model from './components/Model'
 
@@ -35,8 +36,8 @@ class App extends PureComponent {
         {/* TODO: make look more like */}
         <Selector items={items} onChange={e => this._handleSelectItem(e)} />
         {this.state.selectedItem
-          ?  <Model model={this.state.selectedItem} onSubmit={item => this._handleStageItem(item)} />
-          : <p>Select an item from the list</p>
+          ? <Model model={this.state.selectedItem} onSubmit={item => this._handleStageItem(item)} />
+          : null
         }
       </Fragment>
     )

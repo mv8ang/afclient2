@@ -1,6 +1,11 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
+// Material-UI
+import Input from '@material-ui/core/Input'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import FormControl from '@material-ui/core/FormControl'
+
 class Var extends PureComponent {
   state = {
     currentValue: this.props.item.val,
@@ -8,7 +13,7 @@ class Var extends PureComponent {
 
   _handleInputChange = e => {
     this.setState({
-      currentValue: e.target.value
+      currentValue: e.target.value,
     })
   }
 
@@ -17,10 +22,13 @@ class Var extends PureComponent {
     const { currentValue } = this.state
 
     return (
-      <p>
-        {`${name}: `}
-        <input value={currentValue} onChange={e => this._handleInputChange(e)} />
-      </p>
+      <FormControl fullWidth gutterBottom margin='normal'>
+        <Input
+          value={currentValue}
+          onChange={e => this._handleInputChange(e)}
+          startAdornment={<InputAdornment position="start">{name}: </InputAdornment>}
+        />
+      </FormControl>
     )
 
   }
